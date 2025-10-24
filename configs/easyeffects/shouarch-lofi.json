@@ -1,0 +1,43 @@
+{
+  "input": {
+    "plugins": [
+      {
+        "name": "compressor",
+        "state": true,
+        "settings": {
+          "ratio": 4.0,
+          "threshold": -18.0,
+          "makeup": 6.0
+        }
+      },
+      {
+        "name": "equalizer",
+        "state": true,
+        "settings": {
+          "band31": 4.0,
+          "band62": 2.0,
+          "band125": 1.0,
+          "band250": 0.0,
+          "band500": -1.0,
+          "band1k": 0.0,
+          "band2k": 2.0,
+          "band4k": 3.0,
+          "band8k": 2.0,
+          "band16k": 1.0
+        }
+      }
+    ]
+  },
+  "output": {
+    "plugins": [
+      {
+        "name": "limiter",
+        "state": true,
+        "settings": {
+          "input-gain": 0.0,
+          "limit": 0.0
+        }
+      }
+    ]
+  }
+}

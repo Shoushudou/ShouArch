@@ -1,0 +1,95 @@
+/**
+ * ShouArch Rofi Theme
+ * Dark aesthetic - Shiloh Dynasty × XXXTentacion
+ */
+
+* {
+    bg0: #1a1a1a;
+    bg1: #2a2a2a;
+    bg2: #3a3a3a;
+    fg0: #ffffff;
+    fg1: #cccccc;
+    ac0: #ff0066;
+    ac1: #00ff99;
+    ac2: #ffcc00;
+    
+    background-color: transparent;
+    text-color: @fg0;
+}
+
+window {
+    background-color: @bg0;
+    border: 2px;
+    border-color: @ac0;
+    border-radius: 12px;
+    padding: 20px;
+}
+
+mainbox {
+    background-color: transparent;
+    children: [ listview ];
+}
+
+listview {
+    background-color: transparent;
+    lines: 10;
+    scrollbar: false;
+}
+
+element {
+    background-color: transparent;
+    text-color: @fg1;
+    padding: 8px 16px;
+    border-radius: 8px;
+}
+
+element selected {
+    background-color: @ac0;
+    text-color: @bg0;
+    border-radius: 8px;
+}
+
+element-text {
+    background-color: inherit;
+    text-color: inherit;
+    font: "JetBrains Mono 12";
+}
+
+element-icon {
+    size: 24px;
+    background-color: inherit;
+}
+
+inputbar {
+    background-color: @bg1;
+    border-radius: 8px;
+    padding: 12px;
+    margin: 0px 0px 10px 0px;
+    children: [ prompt, entry ];
+}
+
+prompt {
+    background-color: inherit;
+    text-color: @ac0;
+    padding: 0px 8px 0px 0px;
+    font: "JetBrains Mono Bold 12";
+}
+
+entry {
+    background-color: inherit;
+    text-color: @fg0;
+    font: "JetBrains Mono 12";
+}
+
+message {
+    background-color: @bg1;
+    border-radius: 8px;
+    padding: 8px;
+    margin: 10px 0px 0px 0px;
+}
+
+textbox {
+    background-color: inherit;
+    text-color: @fg1;
+    font: "JetBrains Mono 10";
+}

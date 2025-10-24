@@ -1,0 +1,143 @@
+# Base System
+base
+base-devel
+linux
+linux-firmware
+grub
+efibootmgr
+
+# Networking
+networkmanager
+network-manager-applet
+wireless_tools
+wpa_supplicant
+
+# Hyprland Ecosystem
+hyprland
+waybar
+rofi-wayland
+dunst
+swww
+
+# Terminal & Shell
+kitty
+fish
+bash-completion
+
+# Development Tools
+python
+python-pip
+nodejs
+npm
+go
+rust
+gcc
+make
+cmake
+neovim
+vscode
+
+# Utilities
+btop
+htop
+ranger
+ueberzug
+thunar
+gparted
+timeshift
+git
+curl
+wget
+unzip
+zip
+
+# Audio
+pipewire
+pipewire-pulse
+pipewire-alsa
+wireplumber
+pavucontrol
+
+# Media
+mpv
+imv
+feh
+spicetify-cli
+
+# Theming
+pywal
+gtk3
+gtk4
+qt5ct
+qt6ct
+papirus-icon-theme
+bibata-cursors
+
+# Fonts
+ttf-firacode-nerd
+ttf-jetbrains-mono-nerd
+ttf-font-awesome
+noto-fonts
+noto-fonts-emoji
+
+# Additional
+polkit-gnome
+xdg-user-dirs
+xdg-utils
+
+# Gaming & Performance
+gamemode
+mangohud
+goverlay
+vulkan-icd-loader
+lib32-vulkan-icd-loader
+cpupower
+nvidia-utils
+rocm-smi
+
+# Audio Enhancement
+easyeffects
+lsp-plugins
+
+# Security
+firejail
+apparmor
+ufw
+
+# Development
+docker
+docker-compose
+python-pip
+nodejs
+npm
+rustup
+jdk-openjdk
+go
+lazygit
+
+# System monitoring & controls
+brightnessctl
+gammastep
+wlsunset
+redshift
+dunst
+libnotify
+
+# Hyprland plugins
+hyprbars-git
+hy3-git
+hyprwinwrap-git
+
+# App launchers & utilities
+rofi
+rofi-calc
+rofi-emoji
+dmenu
+curl
+gammastep
+redshift
+wlsunset
+playerctl
+pamixer
+brightnessctl
+rofi

@@ -1,0 +1,142 @@
+{
+  "layer": "top",
+  "position": "top", 
+  "height": 35,
+  "spacing": 4,
+  
+  // UPDATE: Tambah module nightlight & spotify
+  "modules-left": ["hyprland/workspaces", "custom/spotify", "cpu", "memory"],
+  "modules-center": ["clock"],
+  "modules-right": ["temperature", "battery", "pulseaudio", "network", "custom/nightlight", "tray"],
+  
+  "hyprland/workspaces": {
+    "disable-scroll": true,
+    "all-outputs": true,
+    "format": "{name}",
+    "format-icons": {
+      "1": "󰈹",
+      "2": "󰘚", 
+      "3": "󰊖",
+      "4": "󰙯",
+      "5": "󰝰",
+      "urgent": "󰂭",
+      "active": "󰮯",
+      "default": "󰊠"
+    }
+  },
+  
+  // UPDATE: Ganti custom/media dengan custom/spotify yang lebih reliable
+  "custom/spotify": {
+    "format": "{} 阮",
+    "max-length": 40,
+    "exec": "playerctl -p spotify metadata --format '{{artist}} - {{title}}' 2>/dev/null || echo 'No music'",
+    "exec-if": "playerctl -p spotify status 2>/dev/null",
+    "on-click": "playerctl -p spotify play-pause",
+    "on-scroll-up": "playerctl -p spotify next", 
+    "on-scroll-down": "playerctl -p spotify previous",
+    "escape": true,
+    "restart-interval": 5
+  },
+  
+  "cpu": {
+    "format": "󰍛 {usage}%",
+    "tooltip": false,
+    "interval": 2
+  },
+  
+  "memory": {
+    "format": "󰘚 {}%", 
+    "interval": 2
+  },
+  
+  // UPDATE: Tambah temperature module
+  "temperature": {
+    "thermal-zone": 0,
+    "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
+    "format": " {temperatureC}°C",
+    "critical-threshold": 80,
+    "format-critical": " {temperatureC}°C ",
+    "interval": 5
+  },
+  
+  // UPDATE: Hapus disk, tambah di tooltip aja
+  "clock": {
+    "format": "{:%H:%M 󰥔 %d/%m}",
+    "format-alt": "{:%A, %B %d, %Y}",
+    "tooltip-format": "<tt><small>{calendar}</small></tt>",
+    "calendar": {
+      "mode": "year",
+      "mode-mon-col": 3,
+      "weeks-pos": "right",
+      "on-scroll": 1,
+      "on-click-right": "mode",
+      "format": {
+        "months": "<span color='#ff0066'><b>{}</b></span>",
+        "days": "<span color='#ecc3d0'><b>{}</b></span>",
+        "weeks": "<span color='#00ff99'><b>W{}</b></span>",
+        "weekdays": "<span color='#ffcc00'><b>{}</b></span>", 
+        "today": "<span color='#ff6699'><b><u>{}</u></b></span>"
+      }
+    }
+  },
+  
+  "network": {
+    "format-wifi": "󰖩 {essid}",
+    "format-ethernet": "󰈀 {ipaddr}",
+    "format-disconnected": "󰖪 Disconnected",
+    "tooltip-format": "{ifname} via {gwaddr}",
+    "tooltip-format-wifi": "{essid} ({signalStrength}%) {icon}",
+    "tooltip-format-ethernet": "{ifname} {ipaddr}",
+    "tooltip-format-disconnected": "Disconnected",
+    "max-length": 50
+  },
+  
+  "pulseaudio": {
+    "format": "{icon} {volume}%",
+    "format-muted": "󰖁 Muted",
+    "format-bluetooth": "󰂰 {volume}%",
+    "format-bluetooth-muted": "󰖁 Muted", 
+    "format-source": "󰍬 {volume}%",
+    "format-source-muted": "󰍭 Muted",
+    "on-click": "pavucontrol",
+    "on-scroll-up": "wpctl set-volume -l 1.0 @DEFAULT_AUDIO_SINK@ 5%+",
+    "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-",
+    "scroll-step": 5,
+    "format-icons": {
+      "headphone": "󰋋",
+      "hands-free": "󰋎",
+      "headset": "󰋎", 
+      "phone": "󰂟",
+      "portable": "󰂟",
+      "car": "󰄋",
+      "default": ["󰕿", "󰖀", "󰕾"]
+    }
+  },
+  
+  "battery": {
+    "states": {
+      "warning": 30,
+      "critical": 15
+    },
+    "format": "{icon} {capacity}%",
+    "format-charging": "󰂄 {capacity}%",
+    "format-plugged": "󰚥 {capacity}%", 
+    "format-alt": "{icon} {time}",
+    "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
+  },
+  
+  // NEW: Night light status
+  "custom/nightlight": {
+    "format": "{}",
+    "exec": "if pgrep gammastep >/dev/null || pgrep wlsunset >/dev/null; then echo '🌙'; else echo '☀️'; fi",
+    "interval": 10,
+    "on-click": "~/scripts/hypr-sunset.sh toggle",
+    "on-scroll-up": "~/scripts/hypr-osd.sh brightness-up",
+    "on-scroll-down": "~/scripts/hypr-osd.sh brightness-down"
+  },
+  
+  "tray": {
+    "icon-size": 16,
+    "spacing": 8
+  }
+}
