@@ -162,10 +162,7 @@ setup_user() {
     print_status "Setting up default user..."
     
     # Create user shou
-    cat << EOF | sudo arch-chroot "$ROOTFS" bash || {
-        print_error "Failed to setup user"
-        exit 1
-    }
+    cat << EOF | sudo arch-chroot "$ROOTFS" bash || { print_error "Failed to setup user"; exit 1; }
 useradd -m -G wheel -s /bin/bash shou
 echo "shou:130910" | chpasswd
 echo "root:130910" | chpasswd
@@ -206,10 +203,7 @@ configure_system() {
     }
     
     # Enable services
-    cat << EOF | sudo arch-chroot "$ROOTFS" bash || {
-        print_error "Failed to enable services"
-        exit 1
-    }
+    cat << EOF | sudo arch-chroot "$ROOTFS" bash || { print_error "Failed to enable services"; exit 1; }
 systemctl enable NetworkManager
 systemctl enable sshd
 systemctl enable systemd-resolved
